@@ -2,7 +2,6 @@ const vscode = require("vscode");
 const chokidar = require('chokidar');
 const utils = require('./src/utils');
 
-const editor = vscode.window.activeTextEditor;
 const projectWorkspace = vscode.workspace.workspaceFolders[0].uri.toString().split(':')[1];
 
 /**
@@ -11,6 +10,7 @@ const projectWorkspace = vscode.workspace.workspaceFolders[0].uri.toString().spl
 function activate(context) {
   const watcher = chokidar.watch(`${projectWorkspace}/db/migrate/`, {
     ignored: /(^|[\/\\])\../, // ignore dotfiles
+    ignoreInitial: true,
     persistent: true
   });
 
@@ -32,6 +32,8 @@ function activate(context) {
       utils.openLatestMigration(projectWorkspace);
     }
   );
+
+  // context.workspaceState.update('start-migrate', 'no');
 
   context.subscriptions.push(railsMigration);
   context.subscriptions.push(openMigration);

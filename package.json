@@ -10,6 +10,7 @@
 		"Other"
 	],
 	"activationEvents": [
+		"workspaceContains: **/db/migrate",
 		"onCommand:rails-migrate.runMigration",
 		"onCommand:rails-migrate.openLatestMigration"
 	],
