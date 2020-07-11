@@ -14,20 +14,27 @@ function activate(context) {
     persistent: true
   });
 
-  // Add event listeners.
   watcher
     .on('add', path => utils.fileAdded(path))
 
-  let disposable = vscode.commands.registerCommand(
-    "rails-migrate.helloWorld",
+  let railsMigration = vscode.commands.registerCommand(
+    "rails-migrate.runMigration",
     function () {
-      console.log(projectWorkspace, editor)
-      vscode.window.showInformationMessage("Hello World from rails-migrate!");
+      utils.runMigration(projectWorkspace);
     }
   );
 
-  context.subscriptions.push(disposable);
-  context.subscriptions.push(watcher);
+
+  let openMigration = vscode.commands.registerCommand(
+    "rails-migrate.openLatestMigration",
+    function () {
+      console.log('goss')
+      utils.openLatestMigration(projectWorkspace);
+    }
+  );
+
+  context.subscriptions.push(railsMigration);
+  context.subscriptions.push(openMigration);
 }
 exports.activate = activate;
 

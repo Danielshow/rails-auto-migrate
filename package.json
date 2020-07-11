@@ -10,14 +10,19 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:rails-migrate.helloWorld"
+		"onCommand:rails-migrate.runMigration",
+		"onCommand:rails-migrate.openLatestMigration"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "rails-migrate.helloWorld",
-				"title": "Hello World"
+				"command": "rails-migrate.runMigration",
+				"title": "Run Rails Migration"
+			},
+			{
+				"command": "rails-migrate.openLatestMigration",
+				"title": "Open Latest Migration"
 			}
 		]
 	},
