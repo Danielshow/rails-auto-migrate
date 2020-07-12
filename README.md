@@ -4,9 +4,12 @@ This is a simple VSCode extension that notifies the user when a new migration ha
 
 ## Features
 
-- Notifies the user about migration
+- Watch migration folder and notifies user about new migration
+![](https://user-images.githubusercontent.com/24846513/87251582-9e4f6b00-c464-11ea-83a9-e1bf2cc49ca1.gif)
 - Ability to run migration automatically
 - View latest migration file.
+![](https://user-images.githubusercontent.com/24846513/87251485-fafe5600-c463-11ea-8fc1-f88713deca8f.gif)
+
 
 
 ## Requirements

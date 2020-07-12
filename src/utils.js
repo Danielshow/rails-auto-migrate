@@ -18,8 +18,8 @@ function runMigration(workspace) {
     `cd ${workspace} && ${command}`,
     (err, stdout, stderr) => {
       if (err) {
-        console.log(stderr);
-        vscode.window.showErrorMessage(stdout);
+        console.log(stderr.split('\n')[0]);
+        vscode.window.showErrorMessage(stderr.split('\n')[0]);
         return;
       }
       vscode.window.showInformationMessage("Migration run successfully!");
