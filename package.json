@@ -2,7 +2,7 @@
 	"name": "rails-migrate",
 	"displayName": "rails-migrate",
 	"description": "Automate migration",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": "Daniel Shotonwa <danielshotonwa53@gmail.com> (https://github.com/danielshow)",
 	"engines": {
 		"vscode": "^1.40.0"
