@@ -28,7 +28,6 @@ function activate(context) {
   let openMigration = vscode.commands.registerCommand(
     "rails-migrate.openLatestMigration",
     function () {
-      console.log('goss')
       utils.openLatestMigration(projectWorkspace);
     }
   );
