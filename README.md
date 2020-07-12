@@ -40,4 +40,6 @@ Initial release of rails-auto-migrate
 * [Github](http://github.com/danielshow)
 * [Twitter](https://twitter.com/d_showWorld)
 
-**Enjoy!**
+**Enjoy!** [https://marketplace.visualstudio.com/items?itemName=danielshow.rails-migrate](https://marketplace.visualstudio.com/items?itemName=danielshow.rails-migrate)
+
+## WIP
