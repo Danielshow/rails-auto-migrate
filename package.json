@@ -3,9 +3,18 @@
 	"displayName": "rails-migrate",
 	"description": "Automate migration",
 	"version": "0.0.1",
+	"author": "Daniel Shotonwa <danielshotonwa53@gmail.com> (https://github.com/danielshow)",
 	"engines": {
 		"vscode": "^1.40.0"
 	},
+	"icon": "assets/rails.png",
+	"keywords": [
+		"rails",
+		"migration",
+		"db:migrate",
+		"ruby",
+		"auto"
+	],
 	"categories": [
 		"Other"
 	],
