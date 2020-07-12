@@ -4,11 +4,15 @@
 	"description": "Automate migration",
 	"version": "0.0.1",
 	"engines": {
-		"vscode": "^1.46.0"
+		"vscode": "^1.40.0"
 	},
 	"categories": [
 		"Other"
 	],
+	"bugs": {
+		"url": "https://github.com/Danielshow/rails-auto-migrate.git/issues"
+	},
+	"publisher": "danielshow",
 	"activationEvents": [
 		"workspaceContains: **/db/migrate",
 		"onCommand:rails-migrate.runMigration",
@@ -45,5 +49,10 @@
 	},
 	"dependencies": {
 		"chokidar": "^3.4.0"
+	},
+	"homepage": "https://github.com/Danielshow/rails-auto-migrate.git#readme",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Danielshow/rails-auto-migrate.git"
 	}
 }
