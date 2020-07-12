@@ -33,8 +33,6 @@ function activate(context) {
     }
   );
 
-  // context.workspaceState.update('start-migrate', 'no');
-
   context.subscriptions.push(railsMigration);
   context.subscriptions.push(openMigration);
 }
