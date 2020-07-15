@@ -2,9 +2,6 @@ const vscode = require("vscode");
 const fs = require("fs");
 const rubySpawn = require('./ruby-spawn')
 
-const workbenchConfig = vscode.workspace.getConfiguration("auto-migrate");
-const migrationCommand = workbenchConfig.get("command");
-
 function fileAdded(path) {
   vscode.window.showInformationMessage(
     "A new migration has been added! Run migration"
@@ -12,7 +9,7 @@ function fileAdded(path) {
 }
 
 function runMigration(workspace) {
-  const child = rubySpawn.rubySpawn('rails', 'db:migrate', { cwd: workspace});
+  const child = rubySpawn.rubySpawn('bundle', ['exec', 'rake db:migrate'], { cwd: workspace});
   child.stdout.on('data', (data) => {
     vscode.window.showInformationMessage("Migration run successfully!"); 
   });
