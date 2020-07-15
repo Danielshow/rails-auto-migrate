@@ -1,6 +1,6 @@
 const vscode = require("vscode");
-const cp = require("child_process");
 const fs = require("fs");
+const rubySpawn = require('./ruby-spawn')
 
 const workbenchConfig = vscode.workspace.getConfiguration("auto-migrate");
 const migrationCommand = workbenchConfig.get("command");
@@ -12,19 +12,23 @@ function fileAdded(path) {
 }
 
 function runMigration(workspace) {
-  process.env.PATH = process.env.PATH + ':/usr/local/bin';
-  const command = migrationCommand || "bundle exec rake db:migrate";
-  cp.exec(
-    `cd ${workspace} && ${command}`,
-    (err, stdout, stderr) => {
-      if (err) {
-        console.log(stderr.split('\n')[0]);
-        vscode.window.showErrorMessage(stderr.split('\n')[0]);
-        return;
-      }
-      vscode.window.showInformationMessage("Migration run successfully!");
-    }
-  );
+  const child = rubySpawn.rubySpawn('rails', 'db:migrate', { cwd: workspace});
+  child.stdout.on('data', (data) => {
+    vscode.window.showInformationMessage("Migration run successfully!"); 
+  });
+
+  child.stderr.on('error', (err) => {
+    vscode.window.showErrorMessage(err.message);
+  })
+
+  child.on('exit', function (code, signal) {
+    console.log('child process exited with ' +
+                `code ${code} and signal ${signal}`);
+  });
+
+  child. on('close', (code) => {
+    console.log(`child process exited with code ${code}`);
+  });
 }
 
 function openLatestMigration(workspace) {
