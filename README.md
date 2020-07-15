@@ -21,8 +21,6 @@ Open vscode command pallet `⇧⌘P`
 - To view Latest migration, click on `Open Latest Migration`
 - To run Migration, click on `Run Rails Migration`
 
-This migration is run with node spawn, you will recieve a notification if successful.
-
 ```bash
 $ bundle exec rake db:migrate
 ```
